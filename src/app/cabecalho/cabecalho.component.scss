@@ -1,0 +1,79 @@
+.cabecalho {
+    background-color: #ffff;
+    height: 90px;
+    position: fixed;
+    top: 0;
+    overflow-x: hidden;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 25px;
+    align-content: center;
+
+
+    .texto {
+        line-height: 4px;
+        padding-left: 100px;
+
+        .titulo {
+            color: #101213;
+            margin-top: 6px;
+            font-size: 1rem;
+        }
+
+        .navegacao {
+            color: #9a9a9a;
+            vertical-align: text-bottom;
+            font-size: 12px;
+        }
+    }
+
+    .opcoes {
+        padding-right: 42px;
+        justify-self: end;
+        display: grid;
+        grid-column-gap: 0.8rem;
+        grid-template-columns: 1fr auto auto;
+
+        .sino, .btn {
+            align-self: center;
+            cursor: pointer;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .cabecalho {
+        grid-template-columns: auto;
+        padding-left: 16px;
+
+        .texto {
+
+            .titulo {
+                margin: 0;
+                font-size: 15px;
+            }
+            .navegacao {
+                font-size: 8px;
+            }
+        }
+
+        .opcoes {
+            padding-right: 59px;
+            grid-row-end: none;
+            padding-bottom: 13px;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 601px) and (max-width: 687px) {
+    .cabecalho {
+        .texto {
+            .titulo {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
