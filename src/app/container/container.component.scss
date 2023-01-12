@@ -1,0 +1,64 @@
+.container {
+    padding: 10px 14px 12px 123px;
+
+    .titulo {
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .p1, .p2 {
+        color: #757d82;
+        line-height: 1px;
+        font-size: 0.8em;
+    }
+
+    form {
+        margin-top: 30px;
+
+        label {
+            font-weight: 600;
+        }
+
+        input {
+            border: solid 1px #889499;
+            border-radius: 2px;
+            height: 28px;
+            width: 16rem;
+            margin-right: 15px;
+        }
+
+        button {
+            height: 31px;
+            width: 10rem;
+            border-radius: 2px;
+            background-color:#165c7d;
+            border: solid 1px #165c7d;
+            color: #ffff;
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        .titulo {
+            font-size: 19px;
+        }
+
+        .p1, .p2 {
+            line-height: normal;
+        }
+
+        button {
+            margin-top: 12px;
+        }
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 738px) {
+    .container {
+        .p1, .p2 {
+            line-height: normal;
+        }
+    }
+}

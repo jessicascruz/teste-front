@@ -7,6 +7,7 @@ import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { EtapasComponent } from './etapas/etapas.component';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EtapasComponent } from './etapas/etapas.component';
     MenuLateralComponent,
     CabecalhoComponent,
     RodapeComponent,
-    EtapasComponent
+    EtapasComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
