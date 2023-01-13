@@ -1,5 +1,6 @@
+import { ValidaCPF } from './validaCPF';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-container',
@@ -11,9 +12,9 @@ export class ContainerComponent implements OnInit {
   form!: FormGroup;
   submitted: boolean = false;
   validaQtd: boolean = false;
+  cpfInvalido: boolean = false;
   valorMinimo: number = 11;
   qtdDigitos!: number;
-  cpfInvalido: boolean = false;
 
   constructor(private fb: FormBuilder) { }
 
@@ -23,7 +24,7 @@ export class ContainerComponent implements OnInit {
             [ Validators.required,
               Validators.maxLength(11),
               Validators.minLength(11),
-              this.validaCpf
+              ValidaCPF.ValidaCpf
             ]
           ]
     });
@@ -32,12 +33,6 @@ export class ContainerComponent implements OnInit {
   public onSubmit() {
     this.submitted = true;
 
-    if (this.validaCpf(this.form.value.cpf)) {
-        alert('entrou')
-    } else {
-      this.cpfInvalido = true;
-      alert(this.cpfInvalido);
-    }
   }
 
   validaQuantidade(event: any) {
@@ -66,30 +61,4 @@ export class ContainerComponent implements OnInit {
   }
 
 
-  validaCpf(control: FormControl) {
-
-    let cpf = control.value;
-
-    if (typeof cpf !== 'string')
-      return false;
-
-    cpf = cpf.replace(/[^\d]+/g, '');
-
-    if (cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/))
-      return false;
-
-    cpf = cpf.split('');
-
-    const validator = cpf
-        .filter((digit: any, index: number, array: string | any[]) => index >= array.length - 2 && digit)
-        .map((el: number) => +el );
-
-    const toValidate = (pop: number) => cpf
-        .filter((digit: any, index: number, array: string | any[]) => index < array.length - pop && digit)
-        .map((el: string | number) => +el);
-
-    const rest = (count: number, pop: number) => (toValidate(pop)
-        .reduce((soma: number, el: number, i: number) => soma + el * (count - i), 0) * 10) % 11 % 10
-    return !(rest(10,2) !== validator[0] || rest(11,1) !== validator[1]);
-}
 }

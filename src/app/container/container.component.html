@@ -21,9 +21,9 @@
             type="button">Consultar por CPF</button>
 
         <div *ngIf="cpf.invalid && submitted">
-            <span class="erro" *ngIf="validaQtd">Campo possui apenas {{qtdDigitos}} de digitos é necessário ter 11</span><br>
-            <span class="erro" *ngIf="cpf.errors?.['required']">Campo CPF é obrigatório</span><br>
-            <span class="erro" *ngIf="cpfInvalido">CPF inválido. Digite um CPF válido</span><br>
+            <div class="erro" *ngIf="validaQtd">Campo possui apenas {{qtdDigitos}} de digitos é necessário ter 11</div>
+            <div class="erro" *ngIf="cpf.errors?.['required']">Campo CPF é obrigatório</div>
+            <div class="erro" *ngIf="cpf.errors?.['cpfInvalido']">CPF inválido. Digite um CPF válido</div>
         </div>
     </form>
 </div>
