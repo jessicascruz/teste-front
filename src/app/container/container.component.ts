@@ -1,6 +1,8 @@
+import { Cliente } from 'src/model/cliente';
+import { ClienteService } from './../../services/cliente.services';
 import { ValidaCPF } from './validaCPF';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-container',
@@ -13,13 +15,14 @@ export class ContainerComponent implements OnInit {
   submitted: boolean = false;
   validaQtd: boolean = false;
   cpfInvalido: boolean = false;
+  cpfNaoEncontrado: boolean = false;
+  ativaCartao: boolean = false;
   valorMinimo: number = 11;
   qtdDigitos!: number;
 
-  numcontaAplicacao: number = 557931-4;
-  numcontaCorrente: number = 778461-8;
+  cliente!: Cliente;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private service: ClienteService) { }
 
   public createForm () {
     this.form = this.fb.group({
@@ -33,27 +36,56 @@ export class ContainerComponent implements OnInit {
     });
   }
 
-  public onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
+    const cpf = this.form.value.cpf;
 
+    this.service.getClientePorCpf(cpf).subscribe(
+        data => {
+          this.cliente = data;
+          this.dadosCliente(this.cliente);
+        }
+    );
+  }
+
+  dadosCliente(data: any): void {
+    this.cliente = data[0];
+    this.ativaCartao = true;
+
+    if (this.cliente === undefined)
+      this.cpfNaoEncontrado = true;
+    else
+      this.cpfNaoEncontrado = false;
+
+    console.log(this.cliente);
   }
 
 
-
-  validaQuantidade(event: any) {
+  validaQuantidade(event: any): void {
     if (this.form.value.cpf.length < this.valorMinimo){
       this.validaQtd = true;
       this.qtdDigitos = this.form.value.cpf.length;
     };
+
+    this.mostraCartoes();
+  }
+
+  mostraCartoes() {
+    if (this.form.value.cpf.length === 0) {
+      this.cliente = {} as Cliente;
+      this.ativaCartao = false;
+    }
   }
 
   apenasNumeros(event: any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
+
+    this.mostraCartoes();
+
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       return false;
     }
     return true;
-
   }
 
   get cpf() {

@@ -10,6 +10,7 @@ import { EtapasComponent } from './etapas/etapas.component';
 import { ContainerComponent } from './container/container.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CardComponent } from './card/card.component';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

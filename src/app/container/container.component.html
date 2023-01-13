@@ -25,22 +25,23 @@
             <div class="erro" *ngIf="cpf.errors?.['required']">Campo CPF é obrigatório</div>
             <div class="erro" *ngIf="cpf.errors?.['cpfInvalido']">CPF inválido. Digite um CPF válido</div>
         </div>
+        <div class="erro" *ngIf="cpfNaoEncontrado">CPF não encontrado</div>
     </form>
 
-    <div class="cards">
+    <div class="cards" *ngIf="ativaCartao">
         <app-card
             titulo="Situação cadastral do CPF"
             subtitulo="Consulta na Receita Federal"
-            nome="Mariane de Sousa"
+            [nome]="cliente.nome"
             tipo="situacao"
-            situacao="Regular"
+            [situacao]="cliente.situacao"
             ></app-card>
 
         <app-card
             titulo="Conta aplicação"
             subtitulo="Cooperativa Viacredi"
             tipo="conta"
-            [numConta]= "numcontaAplicacao"
+            [numConta]= "cliente.contaAplicacao"
         ></app-card>
 
         <app-card
@@ -48,7 +49,7 @@
             titulo="Conta corrente"
             subtitulo="Cooperativa Viacredi"
             tipo="conta"
-            [numConta]= "numcontaCorrente"
+            [numConta]= "cliente.contaCorrente"
     ></app-card>
     </div>
 </div>

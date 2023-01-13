@@ -1,4 +1,4 @@
-export interface MenuLateral {
-    label: string;
+export class MenuLateral {
+    label!: string;
     path?: string;
 }

@@ -1,0 +1,84 @@
+{
+    "clientes": [
+        {
+            "id": 1,
+            "nome": "Hayley Williams",
+            "cpf": 16513475066,
+            "situacao": "Regular",
+            "contaAplicacao": 6546548,
+            "contaCorrente": 8761333
+        },
+        {
+            "id": 2,
+            "nome": "Avril Lavigne",
+            "cpf": 49122399097,
+            "situacao": "Regular",
+            "contaAplicacao": 55025412,
+            "contaCorrente": 6333242
+        },
+        {
+            "id": 3,
+            "nome": "Nando Reis",
+            "cpf": 82587919070,
+            "situacao": "Regular",
+            "contaAplicacao": 55025412,
+            "contaCorrente": 6333242
+        },
+        {
+            "id": 4,
+            "nome": "Harry Styles",
+            "cpf": 22875888099,
+            "situacao": "Regular",
+            "contaAplicacao": 55025412,
+            "contaCorrente": 6333242
+        },
+        {
+            "id": 5,
+            "nome": "Katy Perry",
+            "cpf": 19842055019,
+            "situacao": "Regular",
+            "contaAplicacao": 55025412,
+            "contaCorrente": 6333242
+        },
+        {
+            "id": 6,
+            "nome": "Bruno Mars",
+            "cpf": 86402791016,
+            "situacao": "Regular",
+            "contaAplicacao": 55025412,
+            "contaCorrente": 6333242
+        },
+        {
+            "id": 7,
+            "nome": "Peter Benjamin Parker",
+            "cpf": 98866256005,
+            "situacao": "Regular",
+            "contaAplicacao": 55025412,
+            "contaCorrente": 6333242
+        },
+        {
+            "id": 8,
+            "nome": "Carol Danvers",
+            "cpf": 88033707062,
+            "situacao": "Regular",
+            "contaAplicacao": 55025412,
+            "contaCorrente": 6333242
+        },
+        {
+            "id": 9,
+            "nome": "Natasha Romanoff",
+            "cpf": 41366940083,
+            "situacao": "Regular",
+            "contaAplicacao": 55025412,
+            "contaCorrente": 6333242
+        },
+        {
+            "id": 10,
+            "nome": "Gamora Zen",
+            "cpf": 37738668016,
+            "situacao": "Regular",
+            "contaAplicacao": 55025412,
+            "contaCorrente": 6333242
+        }
+    ]
+  }
