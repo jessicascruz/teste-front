@@ -36,6 +36,15 @@
             color: #ffff;
             cursor: pointer;
         }
+
+        .disabled {
+            opacity: 0.5;
+        }
+
+        .erro {
+            color: red;
+            font-size: 12px;
+        }
     }
 }
 
