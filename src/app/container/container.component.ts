@@ -16,6 +16,9 @@ export class ContainerComponent implements OnInit {
   valorMinimo: number = 11;
   qtdDigitos!: number;
 
+  numcontaAplicacao: number = 557931-4;
+  numcontaCorrente: number = 778461-8;
+
   constructor(private fb: FormBuilder) { }
 
   public createForm () {
@@ -34,6 +37,8 @@ export class ContainerComponent implements OnInit {
     this.submitted = true;
 
   }
+
+
 
   validaQuantidade(event: any) {
     if (this.form.value.cpf.length < this.valorMinimo){

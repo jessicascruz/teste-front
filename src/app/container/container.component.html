@@ -26,6 +26,31 @@
             <div class="erro" *ngIf="cpf.errors?.['cpfInvalido']">CPF inválido. Digite um CPF válido</div>
         </div>
     </form>
+
+    <div class="cards">
+        <app-card
+            titulo="Situação cadastral do CPF"
+            subtitulo="Consulta na Receita Federal"
+            nome="Mariane de Sousa"
+            tipo="situacao"
+            situacao="Regular"
+            ></app-card>
+
+        <app-card
+            titulo="Conta aplicação"
+            subtitulo="Cooperativa Viacredi"
+            tipo="conta"
+            [numConta]= "numcontaAplicacao"
+        ></app-card>
+
+        <app-card
+            class="card-conta-corrente"
+            titulo="Conta corrente"
+            subtitulo="Cooperativa Viacredi"
+            tipo="conta"
+            [numConta]= "numcontaCorrente"
+    ></app-card>
+    </div>
 </div>
 
 

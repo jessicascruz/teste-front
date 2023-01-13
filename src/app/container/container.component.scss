@@ -1,5 +1,6 @@
 .container {
     padding: 10px 14px 12px 123px;
+    // height: -webkit-fill-available;
 
     .titulo {
         font-weight: 500;
@@ -44,6 +45,16 @@
         .erro {
             color: red;
             font-size: 12px;
+        }
+    }
+
+    .cards {
+        display: grid;
+        margin-top: 30px;
+        grid-template-columns: repeat(auto-fit, 300px);
+
+        .card-conta-corrente {
+            margin-bottom: 160px;
         }
     }
 }

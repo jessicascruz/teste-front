@@ -9,6 +9,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { EtapasComponent } from './etapas/etapas.component';
 import { ContainerComponent } from './container/container.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CabecalhoComponent,
     RodapeComponent,
     EtapasComponent,
-    ContainerComponent
+    ContainerComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

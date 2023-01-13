@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-espaco">
+        <h4 class="titulo">{{titulo}}</h4>
+        <p class="subtitulo">{{subtitulo}}</p>
+
+        <div class="sessao-nome" *ngIf="tipo === 'situacao'">
+            <img src="assets/img/User.png" alt="Icone de usuário">
+            <div>
+                <p class="label">Nome</p>
+                <p class="nome">{{nome}}</p>
+            </div>
+        </div>
+
+        <div class="sessao-situacao" *ngIf="tipo === 'situacao'">
+            <img src="assets/img/Check.png" alt="Icone de check verde">
+            <div>
+                <p class="label">Situação do CPF</p>
+                <p class="situacao">{{situacao}}</p>
+            </div>
+        </div>
+
+        <div class="conta" *ngIf="tipo === 'conta'">
+            <img src="assets/img/User.png" alt="Icone de usuário">
+            <div>
+                <p class="label">Número da conta</p>
+                <p class="num-conta">{{numConta}}</p>
+            </div>
+        </div>
+        <a *ngIf="tipo === 'conta'" class="link">Duplicar conta</a>
+
+    </div>
+</div>
