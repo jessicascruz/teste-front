@@ -40,38 +40,39 @@ export class ContainerComponent implements OnInit {
     this.submitted = true;
     const cpf = this.form.value.cpf;
 
-    this.service.getClientePorCpf(cpf).subscribe(
-        data => {
-          this.cliente = data;
-          this.dadosCliente(this.cliente);
-        }
-    );
+    if (this.cpfNumRepetido(cpf)) {
+      this.service.getClientePorCpf(cpf).subscribe(
+          data => {
+            this.cliente = data;
+            this.dadosCliente(this.cliente);
+          }
+      );
+    }
   }
 
   dadosCliente(data: any): void {
     this.cliente = data[0];
     this.ativaCartao = true;
 
-    if (this.cliente === undefined)
+    if (this.cliente === undefined) {
       this.cpfNaoEncontrado = true;
-    else
+      this.ativaCartao = false;
+    } else {
       this.cpfNaoEncontrado = false;
-
-    console.log(this.cliente);
+    }
   }
 
-
   validaQuantidade(event: any): void {
-    if (this.form.value.cpf.length < this.valorMinimo){
+    if ((this.form.value.cpf.length < this.valorMinimo)){
       this.validaQtd = true;
       this.qtdDigitos = this.form.value.cpf.length;
     };
-
-    this.mostraCartoes();
   }
 
-  mostraCartoes() {
-    if (this.form.value.cpf.length === 0) {
+  onKeyUp(event: any) {
+    const retorno = this.cpfNumRepetido(event.target.value);
+
+    if (!retorno || event.target.value === '' || !this.cpfNaoEncontrado) {
       this.cliente = {} as Cliente;
       this.ativaCartao = false;
     }
@@ -80,22 +81,37 @@ export class ContainerComponent implements OnInit {
   apenasNumeros(event: any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
 
-    this.mostraCartoes();
-
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       return false;
     }
     return true;
   }
 
+  cpfNumRepetido(cpf: any) {
+
+    if (
+      cpf == '00000000000' ||
+      cpf == '11111111111' ||
+      cpf == '22222222222' ||
+      cpf == '33333333333' ||
+      cpf == '44444444444' ||
+      cpf == '55555555555' ||
+      cpf == '66666666666' ||
+      cpf == '77777777777' ||
+      cpf == '88888888888' ||
+      cpf == '99999999999'
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   get cpf() {
     return this.form.get('cpf')!;
   }
 
-
   ngOnInit(): void {
     this.createForm();
   }
-
-
 }

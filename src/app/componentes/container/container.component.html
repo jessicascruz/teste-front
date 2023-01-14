@@ -14,6 +14,7 @@
             placeholder="000.000.000-00"
             maxlength="11"
             (keypress)="apenasNumeros($event)"
+            (keyup)="onKeyUp($event)"
             (blur)="validaQuantidade($event)">
 
         <button
@@ -21,11 +22,11 @@
             type="button">Consultar por CPF</button>
 
         <div *ngIf="cpf.invalid && submitted">
-            <div class="erro" *ngIf="validaQtd">Campo possui apenas {{qtdDigitos}} de digitos é necessário ter 11</div>
+            <div class="erro" *ngIf="validaQtd && !cpf.errors?.['required']">Campo possui apenas {{qtdDigitos}} de digitos é necessário ter 11</div>
             <div class="erro" *ngIf="cpf.errors?.['required']">Campo CPF é obrigatório</div>
-            <div class="erro" *ngIf="cpf.errors?.['cpfInvalido']">CPF inválido. Digite um CPF válido</div>
+            <div class="erro" *ngIf="cpf.errors?.['cpfInvalido'] && !cpf.errors?.['required']">CPF inválido. Digite um CPF válido</div>
         </div>
-        <div class="erro" *ngIf="cpfNaoEncontrado">CPF não encontrado</div>
+        <div class="erro" *ngIf="cpfNaoEncontrado && !cpf.errors?.['required'] && !cpf.errors?.['cpfInvalido']">CPF não encontrado</div>
     </form>
 
     <div class="cartoes" *ngIf="ativaCartao">
