@@ -28,29 +28,29 @@
         <div class="erro" *ngIf="cpfNaoEncontrado">CPF não encontrado</div>
     </form>
 
-    <div class="cards" *ngIf="ativaCartao">
-        <app-card
+    <div class="cartoes" *ngIf="ativaCartao">
+        <app-cartao
             titulo="Situação cadastral do CPF"
             subtitulo="Consulta na Receita Federal"
             [nome]="cliente.nome"
             tipo="situacao"
             [situacao]="cliente.situacao"
-            ></app-card>
+            ></app-cartao>
 
-        <app-card
+        <app-cartao
             titulo="Conta aplicação"
             subtitulo="Cooperativa Viacredi"
             tipo="conta"
             [numConta]= "cliente.contaAplicacao"
-        ></app-card>
+        ></app-cartao>
 
-        <app-card
+        <app-cartao
             class="card-conta-corrente"
             titulo="Conta corrente"
             subtitulo="Cooperativa Viacredi"
             tipo="conta"
             [numConta]= "cliente.contaCorrente"
-    ></app-card>
+    ></app-cartao>
     </div>
 </div>
 
