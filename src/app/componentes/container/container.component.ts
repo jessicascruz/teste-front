@@ -1,8 +1,8 @@
-import { Cliente } from 'src/model/cliente';
-import { ClienteService } from './../../services/cliente.services';
+import { Cliente } from 'src/app/model/cliente';
 import { ValidaCPF } from './validaCPF';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClienteService } from 'src/app/services/cliente.services';
 
 @Component({
   selector: 'app-container',
