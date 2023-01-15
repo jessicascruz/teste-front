@@ -126,16 +126,38 @@ fdescribe('ContainerComponent', () => {
     expect(component.ativaCartao).toBeFalse();
   });
 
-  // it('deve submeter formulário', () => {
-  //   let cpf = "16513475066";
+  it('deve validar se tem apenas números e retornar verdadeiro', () => {
+    let cpf = "16513475066";
 
-  //   component.onSubmit();
-  //   component.cpfNumRepetido(cpf);
+    let retorno = component.apenasNumeros(cpf);
 
 
-  //   fixture.detectChanges;
+    fixture.detectChanges;
 
-  //   expect(false);
-  // });
+    expect(retorno).toBeTrue();
+  });
+
+  it('deve validar se tem apenas números e retornar falso', () => {
+    let cpf = "oijh";
+
+    let retorno = component.apenasNumeros(cpf);
+
+
+    fixture.detectChanges;
+
+    expect(retorno).toBeTrue();
+  });
+
+  it('deve submeter formulário', () => {
+    let cpf = "16513475066";
+
+    component.onSubmit();
+    component.cpfNumRepetido(cpf);
+
+
+    fixture.detectChanges;
+
+    expect();
+  });
 
 });
