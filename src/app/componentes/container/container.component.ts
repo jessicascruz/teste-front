@@ -69,12 +69,20 @@ export class ContainerComponent implements OnInit {
     };
   }
 
-  onKeyUp(event: any) {
+  mostraCartoes(event: any) {
     const retorno = this.cpfNumRepetido(event.target.value);
 
     if (!retorno || event.target.value === '' || !this.cpfNaoEncontrado) {
       this.cliente = {} as Cliente;
       this.ativaCartao = false;
+    }
+  }
+
+  mascaraCpf() {
+    if(this.form.value.cpf.length === 3 || this.form.value.cpf.length === 7) {
+      this.form.controls['cpf'].setValue(this.form.value.cpf += '.');
+    } else if(this.form.value.cpf.length === 11) {
+      this.form.controls['cpf'].setValue(this.form.value.cpf += '-');
     }
   }
 

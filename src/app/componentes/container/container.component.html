@@ -12,9 +12,9 @@
             name="cpf"
             id="cpf"
             placeholder="000.000.000-00"
-            maxlength="11"
+            maxlength="14"
             (keypress)="apenasNumeros($event)"
-            (keyup)="onKeyUp($event)"
+            (keyup)="mostraCartoes($event); mascaraCpf()"
             (blur)="validaQuantidade($event)">
 
         <button
@@ -54,8 +54,3 @@
     ></app-cartao>
     </div>
 </div>
-
-
-<!-- [disabled]="!this.myForm.value.cpf"
-     [ngClass]="this.myForm.value.cpf === '' ? 'disabled' : ''"
--->
