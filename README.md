@@ -1,27 +1,50 @@
 # TesteFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+Esse projeto foi criado como teste para uma vaga de Dev front-end.
 
-## Development server
+# Como executar o projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1) Baixe o projeto e instale as dependências:
 
-## Code scaffolding
+```sh
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2) Execute o projeto - Esse script executará o back junto com o front:
 
-## Build
+```sh
+npm run front-back
+```
+3) Para executar os testes:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```sh
+ng test
+```
 
-## Running unit tests
+# CPFs válidos para testar
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+165.134.750-66
+491.223.990-97
+825.879.190-70
+228.758.880-99
+198.420.550-19
+864.027.910-16
+988.662.560-05
+880.337.070-62
+413.669.400-83
+377.386.680-16
 
-## Running end-to-end tests
+# O que o projeto faz
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Ele possui um campo CPF onde se insere um CPF, e se caso ele estiver na base de dados é retornado 3 cards com informações sobre o cliente o qual pertence esse número.
+Se não estiver na base de dados, não for um CPF válido ou se não inserir o dado corretamente, é mostrado ao usuário em letras vermelhas o que está errado.
 
-## Further help
+# Tecnologias usadas
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular - Para a criação do projeto
+- Concurrently - Para executar dois scripts ao mesmo tempo (Back e Front)
+- json-server - Para executar um backend local
+
+# Teste unitários
+
+Foram criados testes unitários de cada componente necessário, cobrindo a maior parte possível.
