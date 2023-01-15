@@ -28,8 +28,8 @@ export class ContainerComponent implements OnInit {
     this.form = this.fb.group({
       cpf: ['',
             [ Validators.required,
-              Validators.maxLength(11),
-              Validators.minLength(11),
+              Validators.maxLength(14),
+              Validators.minLength(14),
               ValidaCPF.ValidaCpf
             ]
           ]
