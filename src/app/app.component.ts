@@ -7,7 +7,6 @@ import { MenuLateral } from './model/menu-lateral';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'teste-front';
 
   menu: MenuLateral[] = [
     {

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CartaoComponent } from './cartao.component';
+import { By } from '@angular/platform-browser';
 
 describe('CartaoComponent', () => {
   let component: CartaoComponent;
